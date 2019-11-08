@@ -1,3 +1,8 @@
+# Given a number P, write an efficient program to find the 
+# largest number which is smaller than or equal to P and
+# has digits in non-decreasing order
+
+
 original_number = int(input("Enter Value: "))
 original_list = list(str(original_number))
 sorted_list = sorted(list(str(original_number)))
