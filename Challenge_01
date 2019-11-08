@@ -1,0 +1,25 @@
+original_number = int(input("Enter Value: "))
+original_list = list(str(original_number))
+sorted_list = sorted(list(str(original_number)))
+
+sorted_list_string = ''
+
+for char in sorted_list:
+    sorted_list_string += char
+
+if original_number != int(sorted_list_string):
+    for digit in original_list:
+        index_main = original_list.index(digit)
+        index_secondary = sorted_list.index(digit)
+        if(index_main != index_secondary):
+            original_list[index_main] = str(int(original_list[index_main])-1)
+            
+            for index in range(index_main+1,len(original_list)):
+                original_list[index] = '9'
+            break
+
+original_list_string = ''
+for char in original_list:
+    original_list_string += char
+    
+print(int(original_list_string))
