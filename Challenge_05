@@ -1,0 +1,68 @@
+#################################################################################################################################
+PROBLEM STATEMENT
+#################################################################################################################################
+
+Given a string A
+
+, print Yes if it is a palindrome, print No otherwise.
+
+Constraints
+
+A will consist at most 50 lower case english letters.
+
+Sample Input
+
+madam
+
+Sample Output
+
+Yes
+
+################################################################################################################################
+SOLUTION SUBMITTED
+################################################################################################################################
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    private static boolean checkPalindrome(String str){
+        int pointer1, pointer2;
+
+        pointer1 = 0;
+        pointer2 = str.length()-1;
+
+        boolean loop, flag;
+        loop = true;
+        flag = true;
+
+        while(loop){
+            if(pointer1 >= pointer2){
+                loop = false;
+            }
+            if(str.charAt(pointer1) == str.charAt(pointer2))
+            {
+                pointer1++;
+                pointer2--;
+            }else{
+                flag = false;
+                loop = false;
+            }
+        }
+
+        return flag;
+    }
+
+    public static void main(String[] args) {
+        
+        Scanner sc=new Scanner(System.in);
+        String A=sc.next();
+        /* Enter your code here. Print output to STDOUT. */
+        if(checkPalindrome(A)){
+            System.out.print("Yes");
+        }else{
+            System.out.print("No");
+        }
+    }
+}
