@@ -1,0 +1,76 @@
+################################################################################################################################
+PROBLEM STATEMENT
+################################################################################################################################
+
+
+Two strings, a and b, are called anagrams if they contain all the same characters in the same frequencies. For example, the anagrams of CAT are CAT, ACT, TAC, TCA, ATC, and CTA.
+
+Complete the function in the editor. If a and b are case-insensitive anagrams, print "Anagrams"; otherwise, print "Not Anagrams" instead.
+
+Input Format
+
+The first line contains a string denoting a
+.
+The second line contains a string denoting b
+
+.
+
+Constraints
+  1<=lenght(a),lenght(b)<=50
+  Strings a and b consist of English alphabetic characters.
+  The comparison should NOT be case sensitive.
+
+Output Format
+
+Print "Anagrams" if a and b are case-insensitive anagrams of each other; otherwise, print "Not Anagrams" instead.
+
+################################################################################################################################
+SOLUTION SUBMITTED
+################################################################################################################################
+
+import java.util.Scanner;
+import java.util.HashMap;
+
+public class Solution {
+    
+    static boolean isAnagram(String a, String b) {
+        // Complete the function
+        a = a.toLowerCase();
+        b = b.toLowerCase();
+
+        if(a.length() != b.length()){
+            return false;
+        }
+
+        HashMap<Character, Integer> map1 = new HashMap<Character, Integer>();
+        HashMap<Character, Integer> map2 = new HashMap<Character, Integer>();
+
+        for(int index=0; index<a.length(); index++){
+            if(map1.containsKey(a.charAt(index))){
+                map1.put(a.charAt(index), map1.get(a.charAt(index))+1);
+            }
+            else{
+                map1.put(a.charAt(index), 1);
+            }
+
+            if(map2.containsKey(b.charAt(index))){
+                map2.put(b.charAt(index), map2.get(b.charAt(index))+1);
+            }
+            else{
+                map2.put(b.charAt(index), 1);
+            }
+        }
+
+        return map1.equals(map2);
+    }
+
+  public static void main(String[] args) {
+    
+        Scanner scan = new Scanner(System.in);
+        String a = scan.next();
+        String b = scan.next();
+        scan.close();
+        boolean ret = isAnagram(a, b);
+        System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
+    }
+}
